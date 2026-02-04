@@ -4,6 +4,7 @@ import 'home_screen.dart';
 import '../profile/profile_screen.dart';
 import '../explore/screens/location_info_screen.dart';
 import '../trips/screens/my_bookings_screen.dart';
+import '../help/screens/help_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -18,7 +19,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> _screens = [
     const HomeScreen(),
     const LocationInfoScreen(),
-    const Center(child: Text('Saved Items')),
+    const HelpScreen(),
     const MyBookingsScreen(),
     const ProfileScreen(),
   ];
@@ -59,9 +60,9 @@ class _MainScreenState extends State<MainScreen> {
               label: 'Explore',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.favorite_border),
-              activeIcon: Icon(Icons.favorite),
-              label: 'Saved',
+              icon: Icon(Icons.help_outline),
+              activeIcon: Icon(Icons.help),
+              label: 'Help',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.confirmation_number_outlined),
