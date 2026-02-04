@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../../core/theme/app_colors.dart';
 import 'home_screen.dart';
 import '../profile/profile_screen.dart';
+import '../explore/screens/location_info_screen.dart';
+import '../trips/screens/my_bookings_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -15,9 +17,9 @@ class _MainScreenState extends State<MainScreen> {
 
   final List<Widget> _screens = [
     const HomeScreen(),
-    const Center(child: Text('Explore Map View')), // Placeholder
-    const Center(child: Text('Saved Items')), // Placeholder
-    const Center(child: Text('My Trips')), // Placeholder
+    const LocationInfoScreen(),
+    const Center(child: Text('Saved Items')),
+    const MyBookingsScreen(),
     const ProfileScreen(),
   ];
 
