@@ -3,6 +3,8 @@ import '../../../core/theme/app_colors.dart';
 import 'admin_dashboard_screen.dart';
 import 'admin_rooms_screen.dart';
 import 'admin_bookings_screen.dart';
+import 'admin_pricing_screen.dart';
+import 'admin_alerts_screen.dart';
 
 class AdminMainScreen extends StatefulWidget {
   const AdminMainScreen({super.key});
@@ -17,9 +19,9 @@ class _AdminMainScreenState extends State<AdminMainScreen> {
   final List<Widget> _screens = [
     const AdminDashboardScreen(),
     const AdminRoomsScreen(),
-    const Center(child: Text('Pricing (Coming Soon)')),
+    const AdminPricingScreen(),
     const AdminBookingsScreen(),
-    const Center(child: Text('Setup (Coming Soon)')),
+    const AdminAlertsScreen(),
   ];
 
   @override
@@ -68,9 +70,9 @@ class _AdminMainScreenState extends State<AdminMainScreen> {
               label: 'Bookings',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.settings_outlined),
-              activeIcon: Icon(Icons.settings),
-              label: 'Setup',
+              icon: Icon(Icons.notifications_active_outlined),
+              activeIcon: Icon(Icons.notifications_active),
+              label: 'Alerts',
             ),
           ],
         ),

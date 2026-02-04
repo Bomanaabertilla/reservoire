@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../core/theme/app_colors.dart';
 import '../admin/screens/admin_main_screen.dart';
 import '../auth/login_screen.dart';
+import '../loyalty/screens/loyalty_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -131,10 +132,20 @@ class ProfileScreen extends StatelessWidget {
               children: [
                 _StatCard(value: '12', label: 'TOTAL\nBOOKINGS'),
                 const SizedBox(width: 16),
-                _StatCard(
-                  value: '4,850',
-                  label: 'POINTS\nEARNED',
-                  isHighlighted: true,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const LoyaltyScreen(),
+                      ),
+                    );
+                  },
+                  child: const _StatCard(
+                    value: '4,850',
+                    label: 'POINTS\nEARNED',
+                    isHighlighted: true,
+                  ),
                 ),
                 const SizedBox(width: 16),
                 _StatCard(value: '2', label: 'ACTIVE\nTRIPS'),
