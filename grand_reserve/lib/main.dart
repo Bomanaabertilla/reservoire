@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'core/theme/app_theme.dart';
+import 'features/auth/login_screen.dart';
 
 void main() {
   runApp(const GrandReserveApp());
@@ -13,9 +14,7 @@ class GrandReserveApp extends StatelessWidget {
     return MaterialApp(
       title: 'Grand Reserve',
       theme: AppTheme.darkTheme,
-      home: const Scaffold(
-        body: Center(child: Text('Grand Reserve - In Development')),
-      ),
+      home: const LoginScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

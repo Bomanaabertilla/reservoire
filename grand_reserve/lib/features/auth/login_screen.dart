@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
 import '../../core/theme/app_colors.dart';
 import '../../widgets/common/custom_text_field.dart';
 import '../../widgets/common/primary_button.dart';
+import '../home/main_screen.dart';
 import 'signup_screen.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -28,7 +27,7 @@ class LoginScreen extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(
-                  PhosphorIcons.buildings,
+                  Icons.apartment,
                   size: 40,
                   color: AppColors.primaryBlue,
                 ),
@@ -48,14 +47,14 @@ class LoginScreen extends StatelessWidget {
               const CustomTextField(
                 label: 'Email',
                 hint: 'name@example.com',
-                prefixIcon: PhosphorIcons.envelope,
+                prefixIcon: Icons.email_outlined,
                 keyboardType: TextInputType.emailAddress,
               ),
               const SizedBox(height: 20),
               const CustomTextField(
                 label: 'Password',
                 hint: 'Enter your password',
-                prefixIcon: PhosphorIcons.lock,
+                prefixIcon: Icons.lock_outline,
                 obscureText: true,
               ),
 
@@ -77,7 +76,10 @@ class LoginScreen extends StatelessWidget {
               PrimaryButton(
                 text: 'Sign In',
                 onPressed: () {
-                  // TODO: Navigate to Home
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MainScreen()),
+                  );
                 },
               ),
 
@@ -107,7 +109,7 @@ class LoginScreen extends StatelessWidget {
                 children: [
                   Expanded(
                     child: _SocialButton(
-                      icon: PhosphorIcons.googleLogo,
+                      icon: Icons.g_mobiledata, // Placeholder for Google
                       label: 'Google',
                       onPressed: () {},
                     ),
@@ -115,7 +117,7 @@ class LoginScreen extends StatelessWidget {
                   const SizedBox(width: 16),
                   Expanded(
                     child: _SocialButton(
-                      icon: PhosphorIcons.appleLogo,
+                      icon: Icons.apple, // Placeholder for Apple
                       label: 'Apple',
                       onPressed: () {},
                     ),
@@ -182,7 +184,7 @@ class _SocialButton extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, size: 20, color: Colors.white),
+          Icon(icon, size: 24, color: Colors.white),
           const SizedBox(width: 8),
           Text(
             label,

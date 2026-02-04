@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
 import '../../core/theme/app_colors.dart';
 import '../../widgets/common/custom_text_field.dart';
 import '../../widgets/common/primary_button.dart';
@@ -21,7 +20,7 @@ class _SignupScreenState extends State<SignupScreen> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(PhosphorIcons.caretLeft, color: Colors.white),
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
           onPressed: () => Navigator.pop(context),
         ),
       ),
@@ -125,11 +124,11 @@ class _SignupScreenState extends State<SignupScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  _SocialIconBtn(icon: PhosphorIcons.googleLogo),
+                  _SocialIconBtn(icon: Icons.g_mobiledata),
                   const SizedBox(width: 24),
-                  _SocialIconBtn(icon: PhosphorIcons.facebookLogo),
+                  _SocialIconBtn(icon: Icons.facebook),
                   const SizedBox(width: 24),
-                  _SocialIconBtn(icon: PhosphorIcons.appleLogo),
+                  _SocialIconBtn(icon: Icons.apple),
                 ],
               ),
 
