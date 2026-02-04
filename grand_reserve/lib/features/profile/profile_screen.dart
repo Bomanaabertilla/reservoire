@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../core/theme/app_colors.dart';
+import '../admin/screens/admin_main_screen.dart';
 import '../auth/login_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -165,6 +166,22 @@ class ProfileScreen extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             _MenuTile(icon: Icons.security, label: 'Security'),
+            const SizedBox(height: 12),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const AdminMainScreen(),
+                  ),
+                );
+              },
+              child: const _MenuTile(
+                icon: Icons.dashboard_outlined,
+                label: 'Admin Dashboard',
+                trailing: 'Staff Only',
+              ),
+            ),
 
             const SizedBox(height: 40),
 
