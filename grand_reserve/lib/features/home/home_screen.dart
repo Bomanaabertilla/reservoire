@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../core/theme/app_colors.dart';
 import '../../widgets/cards/hotel_package_card.dart';
+import '../booking/screens/available_rooms_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -122,7 +123,15 @@ class HomeScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 20),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const AvailableRoomsScreen(),
+                              ),
+                            );
+                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: AppColors.primaryBlue,
                             foregroundColor: Colors.white,
