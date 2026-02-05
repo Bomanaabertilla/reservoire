@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../core/services/auth_service.dart';
 import '../../core/theme/app_colors.dart';
 import '../admin/screens/admin_main_screen.dart';
 import '../auth/login_screen.dart';
@@ -10,6 +11,8 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final user = AuthService.instance.currentUser;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
