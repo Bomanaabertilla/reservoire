@@ -3,6 +3,7 @@ import '../../core/theme/app_colors.dart';
 import '../../widgets/cards/hotel_package_card.dart';
 import '../booking/screens/available_rooms_screen.dart';
 import 'screens/featured_packages_screen.dart';
+import '../dining/screens/dining_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -171,11 +172,24 @@ class HomeScreen extends StatelessWidget {
                       icon: Icons.chair,
                       isSelected: false,
                     ),
-                    const SizedBox(width: 12),
                     _CategoryChip(
                       label: 'Villas',
                       icon: Icons.home,
                       isSelected: false,
+                    ),
+                    const SizedBox(width: 12),
+                    _CategoryChip(
+                      label: 'Hotel Dining',
+                      icon: Icons.restaurant,
+                      isSelected: false,
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const DiningScreen(),
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),
@@ -257,33 +271,38 @@ class _CategoryChip extends StatelessWidget {
   final String label;
   final IconData icon;
   final bool isSelected;
+  final VoidCallback? onPressed;
 
   const _CategoryChip({
     required this.label,
     required this.icon,
     required this.isSelected,
+    this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-      decoration: BoxDecoration(
-        color: isSelected ? AppColors.primaryBlue : AppColors.surface,
-        borderRadius: BorderRadius.circular(24),
-      ),
-      child: Row(
-        children: [
-          Icon(icon, size: 20, color: Colors.white),
-          const SizedBox(width: 8),
-          Text(
-            label,
-            style: const TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.w600,
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+        decoration: BoxDecoration(
+          color: isSelected ? AppColors.primaryBlue : AppColors.surface,
+          borderRadius: BorderRadius.circular(24),
+        ),
+        child: Row(
+          children: [
+            Icon(icon, size: 20, color: Colors.white),
+            const SizedBox(width: 8),
+            Text(
+              label,
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
