@@ -552,7 +552,6 @@ class _MenuItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(
                       child: Text(
@@ -565,6 +564,7 @@ class _MenuItem extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
+                    const SizedBox(width: 8),
                     Text(
                       price,
                       style: const TextStyle(
@@ -587,9 +587,10 @@ class _MenuItem extends StatelessWidget {
                 const SizedBox(height: 4),
                 Row(
                   children: [
-                    Flexible(
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
+                    Expanded(
+                      child: Wrap(
+                        spacing: 8,
+                        runSpacing: 4,
                         children: tags.map((tag) {
                           IconData icon;
                           Color color;
@@ -606,18 +607,14 @@ class _MenuItem extends StatelessWidget {
                             icon = Icons.circle;
                             color = Colors.grey;
                           }
-                          return Padding(
-                            padding: const EdgeInsets.only(right: 8),
-                            child: Icon(
-                              icon,
-                              color: color.withOpacity(0.5),
-                              size: 14,
-                            ),
+                          return Icon(
+                            icon,
+                            color: color.withOpacity(0.5),
+                            size: 14,
                           );
                         }).toList(),
                       ),
                     ),
-                    const Spacer(),
                     if (!showQty)
                       Container(
                         decoration: BoxDecoration(
