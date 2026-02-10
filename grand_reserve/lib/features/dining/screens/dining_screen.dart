@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../core/theme/app_colors.dart';
 import 'dining_checkout_screen.dart';
 
 class DiningScreen extends StatefulWidget {
@@ -344,16 +343,26 @@ class _DiningScreenState extends State<DiningScreen>
                     child: Text(_cartCount.toString()),
                   ),
                   const SizedBox(width: 12),
-                  const Text(
-                    'View Cart',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  const Flexible(
+                    child: Text(
+                      'View Cart',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
                   const Spacer(),
-                  Text(
-                    'GH₵${_cartTotal.toStringAsFixed(2)}',
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
+                  Flexible(
+                    child: Text(
+                      'GH₵${_cartTotal.toStringAsFixed(2)}',
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.right,
                     ),
                   ),
                 ],
@@ -450,6 +459,8 @@ class _RestaurantCard extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 4),
                 Text(
@@ -459,6 +470,8 @@ class _RestaurantCard extends StatelessWidget {
                     fontSize: 12,
                     fontStyle: FontStyle.italic,
                   ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 8),
                 Row(
@@ -571,34 +584,39 @@ class _MenuItem extends StatelessWidget {
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 4),
                 Row(
                   children: [
-                    ...tags.map((tag) {
-                      IconData icon;
-                      Color color;
-                      if (tag == 'veg') {
-                        icon = Icons.eco;
-                        color = Colors.green;
-                      } else if (tag == 'spicy') {
-                        icon = Icons.whatshot;
-                        color = Colors.orange;
-                      } else if (tag == 'halal') {
-                        icon = Icons.verified;
-                        color = Colors.blue;
-                      } else {
-                        icon = Icons.circle;
-                        color = Colors.grey;
-                      }
-                      return Padding(
-                        padding: const EdgeInsets.only(right: 8),
-                        child: Icon(
-                          icon,
-                          color: color.withOpacity(0.5),
-                          size: 14,
-                        ),
-                      );
-                    }).toList(),
+                    Flexible(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: tags.map((tag) {
+                          IconData icon;
+                          Color color;
+                          if (tag == 'veg') {
+                            icon = Icons.eco;
+                            color = Colors.green;
+                          } else if (tag == 'spicy') {
+                            icon = Icons.whatshot;
+                            color = Colors.orange;
+                          } else if (tag == 'halal') {
+                            icon = Icons.verified;
+                            color = Colors.blue;
+                          } else {
+                            icon = Icons.circle;
+                            color = Colors.grey;
+                          }
+                          return Padding(
+                            padding: const EdgeInsets.only(right: 8),
+                            child: Icon(
+                              icon,
+                              color: color.withOpacity(0.5),
+                              size: 14,
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                    ),
                     const Spacer(),
                     if (!showQty)
                       Container(
