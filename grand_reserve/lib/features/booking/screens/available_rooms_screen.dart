@@ -41,7 +41,7 @@ class AvailableRoomsScreen extends StatelessWidget {
                   title: 'Executive Sea View Suite',
                   description:
                       'Spacious suite with floor-to-ceiling windows and a private sunrise balcony.',
-                  price: '\$450',
+                  price: 'GH₵450',
                   imageUrl:
                       'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=800&q=80',
                   amenities: const ['Free Wifi', 'Central AC', 'King Size'],
@@ -64,7 +64,7 @@ class AvailableRoomsScreen extends StatelessWidget {
                   title: 'Deluxe Garden View Room',
                   description:
                       'Quiet, minimalist room overlooking the historic botanical gardens.',
-                  price: '\$280',
+                  price: 'GH₵280',
                   imageUrl:
                       'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80',
                   amenities: const ['Free Wifi', 'Queen Size'],
@@ -77,7 +77,7 @@ class AvailableRoomsScreen extends StatelessWidget {
                   title: 'Skyline Presidential Loft',
                   description:
                       'Top-floor luxury with 360-degree views and private pool access.',
-                  price: '\$620',
+                  price: 'GH₵620',
                   imageUrl:
                       'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80',
                   amenities: const ['Free Wifi', 'King Size', 'Breakfast'],

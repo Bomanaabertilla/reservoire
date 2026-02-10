@@ -152,12 +152,12 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             const SizedBox(height: 16),
             _PriceRow(
               label: 'Room Rate (1 night)',
-              value: '\$${widget.price.toStringAsFixed(2)}',
+              value: 'GH₵${widget.price.toStringAsFixed(2)}',
             ),
             const SizedBox(height: 8),
             _PriceRow(
               label: 'Taxes & Fees',
-              value: '\$${taxes.toStringAsFixed(2)}',
+              value: 'GH₵${taxes.toStringAsFixed(2)}',
             ),
             const Divider(height: 32, color: AppColors.surface),
             Row(
@@ -168,7 +168,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  '\$${total.toStringAsFixed(2)}',
+                  'GH₵${total.toStringAsFixed(2)}',
                   style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
