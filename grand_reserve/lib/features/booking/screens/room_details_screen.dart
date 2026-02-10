@@ -149,7 +149,7 @@ class _RoomDetailsScreenState extends State<RoomDetailsScreen> {
                     _PackageOption(
                       title: 'Standard Stay',
                       subtitle: 'Room only + Welcome drink',
-                      priceDisplay: '+\$0',
+                      priceDisplay: '+GH₵0',
                       isSelected: _selectedPackageIndex == 0,
                       onTap: () => setState(() => _selectedPackageIndex = 0),
                     ),
@@ -157,7 +157,7 @@ class _RoomDetailsScreenState extends State<RoomDetailsScreen> {
                     _PackageOption(
                       title: 'Breakfast Included',
                       subtitle: 'Full buffet breakfast daily',
-                      priceDisplay: '+\$45',
+                      priceDisplay: '+GH₵45',
                       isSelected: _selectedPackageIndex == 1,
                       onTap: () => setState(() => _selectedPackageIndex = 1),
                     ),
@@ -165,7 +165,7 @@ class _RoomDetailsScreenState extends State<RoomDetailsScreen> {
                     _PackageOption(
                       title: 'All-Inclusive Luxury',
                       subtitle: 'Full board + Spa access',
-                      priceDisplay: '+\$120',
+                      priceDisplay: '+GH₵120',
                       isPopular: true,
                       isSelected: _selectedPackageIndex == 2,
                       onTap: () => setState(() => _selectedPackageIndex = 2),
@@ -202,7 +202,7 @@ class _RoomDetailsScreenState extends State<RoomDetailsScreen> {
                         ),
                       ),
                       Text(
-                        '\$${widget.price.toInt()}',
+                        'GH₵${widget.price.toInt()}',
                         style: const TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,

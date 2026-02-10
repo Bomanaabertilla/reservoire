@@ -216,7 +216,7 @@ class HomeScreen extends StatelessWidget {
                     HotelPackageCard(
                       title: 'Weekend Getaway',
                       location: 'Manhattan, New York',
-                      price: '\$299',
+                      price: 'GH₵299',
                       rating: '5.0',
                       reviewCount: '128',
                       discountTag: '20% OFF',
@@ -225,7 +225,7 @@ class HomeScreen extends StatelessWidget {
                     HotelPackageCard(
                       title: 'Spa & Stay',
                       location: 'Napa Valley, California',
-                      price: '\$450',
+                      price: 'GH₵450',
                       rating: '4.8',
                       reviewCount: '94',
                       discountTag: 'POPULAR',

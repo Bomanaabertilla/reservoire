@@ -44,7 +44,7 @@ class AdminDashboardScreen extends StatelessWidget {
               children: const [
                 AdminMetricCard(
                   title: 'Revenue',
-                  value: '\$42.5k',
+                  value: 'GH₵42.5k',
                   trend: '12.5%',
                   icon: Icons.account_balance_wallet,
                 ),

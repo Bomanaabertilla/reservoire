@@ -60,13 +60,13 @@ class AdminPricingScreen extends StatelessWidget {
             const _PricingCard(
               title: 'Deluxe Ocean View',
               stats: 'King Bed • Balcony • 45sqm',
-              price: '\$299',
+              price: 'GH₵299',
             ),
             const SizedBox(height: 16),
             const _PricingCard(
               title: 'Executive Suite',
               stats: 'Living Room • Kitchen • 80sqm',
-              price: '\$450',
+              price: 'GH₵450',
             ),
 
             const SizedBox(height: 32),
@@ -220,7 +220,7 @@ class AdminPricingScreen extends StatelessWidget {
                             TextFormField(
                               initialValue: '50',
                               decoration: InputDecoration(
-                                prefixText: '\$ ',
+                                prefixText: 'GH₵ ',
                                 fillColor: AppColors.background,
                                 filled: true,
                                 border: OutlineInputBorder(
@@ -279,7 +279,7 @@ class AdminPricingScreen extends StatelessWidget {
               color: Colors.pink,
               title: 'Honeymoon Special',
               subtitle: 'DELUXE OCEAN + CHAMPAGNE + SPA',
-              price: '+\$120',
+              price: '+GH₵120',
             ),
             const SizedBox(height: 12),
             const _BundleTile(
@@ -287,7 +287,7 @@ class AdminPricingScreen extends StatelessWidget {
               color: Colors.blue,
               title: 'Breakfast & Spa',
               subtitle: 'ANY ROOM + FULL BOARD + 1HR MASSAGE',
-              price: '+\$85',
+              price: '+GH₵85',
             ),
           ],
         ),
