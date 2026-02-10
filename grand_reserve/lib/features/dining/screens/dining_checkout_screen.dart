@@ -140,8 +140,7 @@ class DiningCheckoutScreen extends StatelessWidget {
                     price: 'GH₵32.00',
                     qty: 1,
                     desc: 'No onions, Medium rare',
-                    imageUrl:
-                        'https://images.unsplash.com/photo-1568901346375-23c9450c58cd',
+                    imageUrl: 'assets/images/food_burger.png',
                   ),
                   Divider(color: Colors.white10, height: 1),
                   _OrderItem(
@@ -149,8 +148,7 @@ class DiningCheckoutScreen extends StatelessWidget {
                     price: 'GH₵14.00',
                     qty: 2,
                     desc: 'Oat milk',
-                    imageUrl:
-                        'https://images.unsplash.com/photo-1517701604599-bb29b565090c',
+                    imageUrl: 'assets/images/food_latte.png',
                   ),
                 ],
               ),
@@ -451,7 +449,7 @@ class _OrderItem extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(12),
-            child: Image.network(
+            child: Image.asset(
               imageUrl,
               height: 60,
               width: 60,

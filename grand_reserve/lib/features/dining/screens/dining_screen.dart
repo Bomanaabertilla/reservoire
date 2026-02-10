@@ -212,8 +212,7 @@ class _DiningScreenState extends State<DiningScreen>
                           subtitle: 'Contemporary Fine Dining',
                           rating: '4.9',
                           price: '\$\$\$',
-                          imageUrl:
-                              'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4', // Placeholder
+                          imageUrl: 'assets/images/restaurant_azure.png',
                           isOpen: true,
                         ),
                         SizedBox(width: 16),
@@ -222,8 +221,7 @@ class _DiningScreenState extends State<DiningScreen>
                           subtitle: 'International Cuisine',
                           rating: '4.7',
                           price: '\$\$',
-                          imageUrl:
-                              'https://images.unsplash.com/photo-1552566626-52f8b828add9', // Placeholder
+                          imageUrl: 'assets/images/restaurant_bistro.png',
                           isOpen: false,
                         ),
                       ],
@@ -262,8 +260,7 @@ class _DiningScreenState extends State<DiningScreen>
                     description:
                         'Thinly sliced fresh salmon with yuzu dressing, capers, and dill microgreens.',
                     price: 'GH₵18.50',
-                    imageUrl:
-                        'https://images.unsplash.com/photo-1546069901-ba9599a7e63c',
+                    imageUrl: 'assets/images/food_salmon.png',
                     tags: ['veg', 'halal'],
                   ),
                   const _MenuItem(
@@ -271,8 +268,7 @@ class _DiningScreenState extends State<DiningScreen>
                     description:
                         'Garlic-rubbed sourdough topped with multi-colored tomatoes, basil, and...',
                     price: 'GH₵14.00',
-                    imageUrl:
-                        'https://images.unsplash.com/photo-1572656631137-7935297eff55',
+                    imageUrl: 'assets/images/food_bruschetta.png',
                     tags: ['veg'],
                   ),
                   const SizedBox(height: 16),
@@ -293,8 +289,7 @@ class _DiningScreenState extends State<DiningScreen>
                     description:
                         '250g premium beef served with truffle mash, seasonal vegetables and...',
                     price: 'GH₵42.00',
-                    imageUrl:
-                        'https://images.unsplash.com/photo-1546241072-48010ad28c2c',
+                    imageUrl: 'assets/images/food_steak.png',
                     tags: ['spicy'],
                   ),
                   _MenuItem(
@@ -302,8 +297,7 @@ class _DiningScreenState extends State<DiningScreen>
                     description:
                         'Creamy Arborio rice with porcini mushrooms, parmesan, and a drizzle o...',
                     price: 'GH₵29.00',
-                    imageUrl:
-                        'https://images.unsplash.com/photo-1476124369491-e7addf5db371',
+                    imageUrl: 'assets/images/food_risotto.png',
                     tags: ['veg'],
                     showQty: true,
                     qty: _cartCount,
@@ -413,7 +407,7 @@ class _RestaurantCard extends StatelessWidget {
                 borderRadius: const BorderRadius.vertical(
                   top: Radius.circular(24),
                 ),
-                child: Image.network(
+                child: Image.asset(
                   imageUrl,
                   height: 140,
                   width: double.infinity,
@@ -532,7 +526,7 @@ class _MenuItem extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(16),
-            child: Image.network(
+            child: Image.asset(
               imageUrl,
               height: 80,
               width: 80,
