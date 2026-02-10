@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../core/models/user_model.dart';
+import '../../core/services/auth_service.dart';
 import '../../core/theme/app_colors.dart';
 import '../../widgets/common/custom_text_field.dart';
 import '../../widgets/common/primary_button.dart';
@@ -39,6 +41,28 @@ class _SignupScreenState extends State<SignupScreen> {
         );
         return;
       }
+
+      // Create user from input
+      final newUser = UserModel(
+        id: DateTime.now().millisecondsSinceEpoch.toString(),
+        fullName: _nameController.text,
+        email: _emailController.text,
+        memberStatus: 'REGULAR MEMBER',
+        profileInitials: _nameController.text.isNotEmpty
+            ? _nameController.text
+                  .split(' ')
+                  .map((e) => e[0])
+                  .take(2)
+                  .join()
+                  .toUpperCase()
+            : '??',
+        totalBookings: '0',
+        pointsEarned: '0',
+        activeTrips: '0',
+      );
+
+      // Set current user
+      AuthService.instance.setUser(newUser);
 
       // Proceed to home screen
       Navigator.pushReplacement(

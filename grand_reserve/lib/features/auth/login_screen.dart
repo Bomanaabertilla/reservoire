@@ -1,12 +1,27 @@
 import 'package:flutter/material.dart';
+import '../../core/models/user_model.dart';
+import '../../core/services/auth_service.dart';
 import '../../core/theme/app_colors.dart';
 import '../../widgets/common/custom_text_field.dart';
 import '../../widgets/common/primary_button.dart';
 import '../home/main_screen.dart';
 import 'signup_screen.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final _emailController = TextEditingController();
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,11 +59,12 @@ class LoginScreen extends StatelessWidget {
               ),
               const SizedBox(height: 40),
 
-              const CustomTextField(
+              CustomTextField(
                 label: 'Email',
                 hint: 'name@example.com',
                 prefixIcon: Icons.email_outlined,
                 keyboardType: TextInputType.emailAddress,
+                controller: _emailController,
               ),
               const SizedBox(height: 20),
               const CustomTextField(
@@ -76,6 +92,28 @@ class LoginScreen extends StatelessWidget {
               PrimaryButton(
                 text: 'Sign In',
                 onPressed: () {
+                  final email = _emailController.text.trim();
+                  final name = email.isNotEmpty
+                      ? email.split('@')[0]
+                      : 'Julian Alexander';
+
+                  AuthService.instance.setUser(
+                    UserModel(
+                      id: '1',
+                      fullName: name,
+                      email: email.isNotEmpty
+                          ? email
+                          : 'julian.alexander@example.com',
+                      memberStatus: 'GOLD MEMBER',
+                      profileInitials: name.isNotEmpty
+                          ? name[0].toUpperCase()
+                          : 'JA',
+                      totalBookings: '0',
+                      pointsEarned: '0',
+                      activeTrips: '0',
+                    ),
+                  );
+
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (context) => const MainScreen()),

@@ -62,7 +62,7 @@ class ProfileScreen extends StatelessWidget {
                         ),
                         child: Center(
                           child: Text(
-                            "JA",
+                            user?.profileInitials ?? "??",
                             style: GoogleFonts.playfairDisplay(
                               fontSize: 40,
                               color: AppColors.accentGold,
@@ -90,7 +90,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    'Julian Alexander',
+                    user?.fullName ?? 'Guest User',
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
                   const SizedBox(height: 8),
@@ -113,7 +113,7 @@ class ProfileScreen extends StatelessWidget {
                         ),
                         const SizedBox(width: 8),
                         Text(
-                          'GOLD MEMBER',
+                          user?.memberStatus ?? 'REGULAR MEMBER',
                           style: TextStyle(
                             color: AppColors.accentGold,
                             fontWeight: FontWeight.bold,
@@ -133,7 +133,10 @@ class ProfileScreen extends StatelessWidget {
             // Stats
             Row(
               children: [
-                _StatCard(value: '12', label: 'TOTAL\nBOOKINGS'),
+                _StatCard(
+                  value: user?.totalBookings ?? '0',
+                  label: 'TOTAL\nBOOKINGS',
+                ),
                 const SizedBox(width: 16),
                 GestureDetector(
                   onTap: () {
@@ -144,14 +147,17 @@ class ProfileScreen extends StatelessWidget {
                       ),
                     );
                   },
-                  child: const _StatCard(
-                    value: '4,850',
+                  child: _StatCard(
+                    value: user?.pointsEarned ?? '0',
                     label: 'POINTS\nEARNED',
                     isHighlighted: true,
                   ),
                 ),
                 const SizedBox(width: 16),
-                _StatCard(value: '2', label: 'ACTIVE\nTRIPS'),
+                _StatCard(
+                  value: user?.activeTrips ?? '0',
+                  label: 'ACTIVE\nTRIPS',
+                ),
               ],
             ),
 

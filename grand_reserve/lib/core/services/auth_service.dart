@@ -9,6 +9,10 @@ class AuthService {
   UserModel? _currentUser;
   UserModel? get currentUser => _currentUser;
 
+  void setUser(UserModel user) {
+    _currentUser = user;
+  }
+
   void initializeMockUser() {
     _currentUser = UserModel(
       id: '1',
@@ -16,9 +20,9 @@ class AuthService {
       email: 'julian.alexander@example.com',
       memberStatus: 'GOLD MEMBER',
       profileInitials: 'JA',
-      totalBookings: '12',
-      pointsEarned: '4,850',
-      activeTrips: '2',
+      totalBookings: '0',
+      pointsEarned: '0',
+      activeTrips: '0',
     );
   }
 
