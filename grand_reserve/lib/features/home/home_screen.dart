@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../core/theme/app_colors.dart';
 import '../../widgets/cards/hotel_package_card.dart';
 import '../booking/screens/available_rooms_screen.dart';
+import 'screens/featured_packages_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -195,7 +196,15 @@ class HomeScreen extends StatelessWidget {
                       ).textTheme.headlineSmall?.copyWith(fontSize: 22),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const FeaturedPackagesScreen(),
+                          ),
+                        );
+                      },
                       child: const Text(
                         'View all',
                         style: TextStyle(color: AppColors.textLink),
