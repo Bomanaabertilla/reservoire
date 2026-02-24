@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../../core/models/user_model.dart';
 import '../../core/services/auth_service.dart';
 import '../../core/theme/app_colors.dart';
@@ -147,17 +148,39 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   Expanded(
                     child: _SocialButton(
-                      icon: Icons.g_mobiledata, // Placeholder for Google
+                      assetPath: 'assets/images/google_logo.svg',
                       label: 'Google',
-                      onPressed: () {},
+                      onPressed: () async {
+                        final user = await AuthService.instance
+                            .signInWithGoogle();
+                        if (user != null && mounted) {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const MainScreen(),
+                            ),
+                          );
+                        }
+                      },
                     ),
                   ),
                   const SizedBox(width: 16),
                   Expanded(
                     child: _SocialButton(
-                      icon: Icons.apple, // Placeholder for Apple
+                      assetPath: 'assets/images/apple_logo.svg',
                       label: 'Apple',
-                      onPressed: () {},
+                      onPressed: () async {
+                        final user = await AuthService.instance
+                            .signInWithApple();
+                        if (user != null && mounted) {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const MainScreen(),
+                            ),
+                          );
+                        }
+                      },
                     ),
                   ),
                 ],
@@ -200,12 +223,12 @@ class _LoginScreenState extends State<LoginScreen> {
 }
 
 class _SocialButton extends StatelessWidget {
-  final IconData icon;
+  final String assetPath;
   final String label;
   final VoidCallback onPressed;
 
   const _SocialButton({
-    required this.icon,
+    required this.assetPath,
     required this.label,
     required this.onPressed,
   });
@@ -216,18 +239,20 @@ class _SocialButton extends StatelessWidget {
       onPressed: onPressed,
       style: OutlinedButton.styleFrom(
         padding: const EdgeInsets.symmetric(vertical: 16),
-        side: BorderSide(color: AppColors.surface),
+        side: BorderSide(color: AppColors.surface, width: 1.5),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        backgroundColor: Colors.transparent,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, size: 24, color: Colors.white),
-          const SizedBox(width: 8),
+          SvgPicture.asset(assetPath, height: 24, width: 24),
+          const SizedBox(width: 12),
           Text(
             label,
             style: const TextStyle(
               color: Colors.white,
+              fontSize: 16,
               fontWeight: FontWeight.w600,
             ),
           ),
